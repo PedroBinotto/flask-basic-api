@@ -6,8 +6,9 @@ from flask_marshmallow import Marshmallow
 from flask_cors import CORS
 from flask_mail import Mail
 from apifairy import APIFairy
-from config import Config
 from dataclasses import dataclass, field
+
+from flaskbasicapi.config import Config
 
 db = Alchemical()
 migrate = Migrate()
