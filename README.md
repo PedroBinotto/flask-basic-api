@@ -4,13 +4,6 @@
 
 A modern (as of 2022) Flask API back end.
 
-## Deploy to Heroku
-
-Click the button below to deploy the application directly to your Heroku
-account.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/miguelgrinberg/microblog-api/tree/heroku)
-
 ## Deploy on your Computer
 
 ### Setup
