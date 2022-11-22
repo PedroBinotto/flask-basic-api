@@ -29,7 +29,7 @@ def create_app(models, modules: List[Module], config_class=Config):
 
     # extensions
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, directory=app.config["MIGRATION_DIR"])
     ma.init_app(app)
     if app.config["USE_CORS"]:  # pragma: no branch
         cors.init_app(app)
