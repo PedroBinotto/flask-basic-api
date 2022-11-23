@@ -1,7 +1,8 @@
+from typing import Any, Dict, Type
 from marshmallow import validates_schema, ValidationError
 from flaskbasicapi.api import ma
 
-paginated_schema_cache = {}
+paginated_schema_cache: Dict[Any, Type[ma.Schema]] = {}
 
 
 class StringPaginationSchema(ma.Schema):

@@ -16,9 +16,9 @@ def paginated_response(
     def inner(f):
         @wraps(f)
         def paginate(*args, **kwargs):
-            args = list(args)
-            pagination = args.pop(-1)
-            select_query = f(*args, **kwargs)
+            arg_list = list(args)
+            pagination = arg_list.pop(-1)
+            select_query = f(*arg_list, **kwargs)
             if order_by is not None:
                 o = order_by.desc() if order_direction == "desc" else order_by
                 select_query = select_query.order_by(o)
