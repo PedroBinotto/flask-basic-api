@@ -161,4 +161,12 @@ containing a detailed list of validation errors found in the submitted request:
 ```
 """  # noqa: E501
 
-from flaskbasicapi.api.app import create_app, db, ma  # noqa: F401
+from flaskbasicapi.api.app import (
+    create_app,
+    db,
+    ma,
+    Module,
+    mail,
+    apifairy,
+)  # noqa: F401
+from flaskbasicapi.api import decorators

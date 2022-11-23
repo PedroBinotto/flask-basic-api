@@ -1,0 +1,3 @@
+include src/flaskbasicapi/api/*.py
+include src/flaskbasicapi/api/templates/*.txt
+include src/flaskbasicapi/api/templates/*.html
