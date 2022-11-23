@@ -165,8 +165,8 @@ from flaskbasicapi.api.app import (
     create_app,
     db,
     ma,
-    Module,
     mail,
     apifairy,
+    Module,
 )  # noqa: F401
 from flaskbasicapi.api import decorators
