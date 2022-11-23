@@ -13,6 +13,7 @@ def as_bool(value):
 
 class Config:
     # database options
+    APP_NAME = os.environ.get("FLASKBASICAPI_APPLICATION") or "FlaskBasicAPI"
     ALCHEMICAL_DATABASE_URL = os.environ.get(
         "DATABASE_URL"
     ) or "sqlite:///" + os.path.join(basedir, "db.sqlite")
@@ -35,7 +36,7 @@ class Config:
     CORS_SUPPORTS_CREDENTIALS = True
 
     # API documentation
-    APIFAIRY_TITLE = "Microblog API"
+    APIFAIRY_TITLE = APP_NAME
     APIFAIRY_VERSION = "1.0"
     APIFAIRY_UI = os.environ.get("DOCS_UI", "elements")
 
