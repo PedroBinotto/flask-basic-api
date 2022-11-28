@@ -12,6 +12,8 @@ def as_bool(value):
 
 
 class Config:
+    APP_NAME = os.environ.get("FLASKBASICAPI_APPLICATION") or "FlaskBasicAPI"
+
     # database options
     ALCHEMICAL_DATABASE_URL = os.environ.get(
         "DATABASE_URL"
@@ -35,7 +37,7 @@ class Config:
     CORS_SUPPORTS_CREDENTIALS = True
 
     # API documentation
-    APIFAIRY_TITLE = "Microblog API"
+    APIFAIRY_TITLE = APP_NAME
     APIFAIRY_VERSION = "1.0"
     APIFAIRY_UI = os.environ.get("DOCS_UI", "elements")
 
@@ -46,7 +48,7 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     MAIL_DEFAULT_SENDER = os.environ.get(
-        "MAIL_DEFAULT_SENDER", "donotreply@microblog.example.com"
+        "MAIL_DEFAULT_SENDER", "donotreply@flaskbasicapi.example.com"
     )
 
     MIGRATION_DIR = os.environ.get("MIGRATION_DIR", "migrations")
