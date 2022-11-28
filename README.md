@@ -2,6 +2,8 @@
 
 [![Build status](https://github.com/PedroBinotto/flaskbasicapi/actions/workflows/tests.yml/badge.svg)](https://github.com/PedroBinotto/flaskbasicapi/actions/)
 
+ :warning: **[WIP]** [@PedroBinotto](https://github.com/PedroBinotto) :warning:
+
 Bootstrapping tool (hack) for simple Flask backend API development
 
 ### Configuration
