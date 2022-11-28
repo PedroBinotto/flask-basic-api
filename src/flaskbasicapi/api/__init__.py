@@ -1,32 +1,16 @@
 """
-Welcome to the documentation for the Microblog API!
+Welcome to the documentation for the FlaskBasicAPI
+
 
 This project is written in Python, with the
-[Flask](https://flask.palletsprojects.com/) web framework. This documentation
-is generated automatically from the
-[project's source code](https://github.com/miguelgrinberg/microblog-api) using
+[Flask](https://flask.palletsprojects.com/) web framework, and built upon Miguel Grinberg's
+[microblog-api](https://github.com/miguelgrinberg/microblog-api). This documentation
+is generated automatically from the [project's source code](https://github.com/PedroBinotto/flaskbasicapi) using
 the [APIFairy](https://github.com/miguelgrinberg/apifairy) Flask extension.
-
-## Introduction
-
-Microblog-API is an easy to use web API for creating microblogs. It is an ideal
-project to use when learning a front end framework, as it provides a fully
-implemented back end that you can integrate against.
-
-Microblog API provides all the base features required to implement a
-microblogging project:
-
-- User registration, login and logout
-- Password recovery flow with reset emails
-- Post creation and deletion
-- Follow and unfollow users
-- Feed with posts from followed users
-- Pagination
-- Option to disable authentication during development
 
 ## Configuration
 
-If you are running Microblog API yourself while developing your front end,
+If you are running the API yourself while developing your front end,
 there are a number of environment variables that you can set to configure its
 behavior. The variables can be defined directly in the environment or in a
 `.env` file in the project directory. The following table lists all the
@@ -34,6 +18,7 @@ environment variables that are currently used:
 
 | Environment Variable | Default | Description |
 | - | - | - |
+| `FLASKBASICAPI_APPLICATION` | `FlaskBasicAPI` | Application name. |
 | `SECRET_KEY` | `top-secret!` | A secret key used when signing tokens. |
 | `DATABASE_URL`  | `sqlite:///db.sqlite` | The database URL, as defined by the [SQLAlchemy](https://docs.sqlalchemy.org/en/14/core/engines.html#database-urls) framework. |
 | `SQL_ECHO` | not defined | Whether to echo SQL statements to the console for debugging purposes. |
@@ -51,7 +36,8 @@ environment variables that are currently used:
 | `MAIL_USE_TLS` | not defined | Whether to use TLS when sending emails. |
 | `MAIL_USERNAME` | not defined | The username to use for sending emails. |
 | `MAIL_PASSWORD` | not defined | The password to use for sending emails. |
-| `MAIL_DEFAULT_SENDER` | `donotreply@microblog.example.com` | The default sender to use for emails. |
+| `MAIL_DEFAULT_SENDER` | `donotreply@flaskbasicapi.example.com` | The default sender to use for emails. |
+| `MIGRATION_DIR` | not defined | Directory containing the database migration files. |
 
 ## Authentication
 
@@ -99,7 +85,7 @@ capture the `token` query string argument and send it in a `PUT` request to
 
 ## Pagination
 
-API endpoints that return collections of resources, such as the users or posts,
+API endpoints that return collections of resources, such as the users,
 implement pagination, and the client must use query string arguments to specify
 the range of items to return.
 
@@ -119,15 +105,9 @@ shows how to request the second page of users with a page size of 10:
 Sometimes paginating with the `offset` argument can be inconvenient, such as
 with collections where new elements are not always inserted at the end of the
 list. As an alternative to `offset`, the `after` argument can be used to set
-the start item to the item after the one specified. This API supports `after`
-for collections of blog posts, which are sorted by their publication time in
-descending order, and for collections of users, which are sorted by their
-username in ascending order. For blog posts, the `after` argument must be set
-to a date and time specification in ISO 8601 format, such as
-`2020-01-01T00:00:00Z`. For users, the `after` argument must be set to a
-string. Examples:
+the start item to the item after the one specified.
+For users, the `after` argument must be set to a string. Examples:
 
-    http://localhost:5000/api/posts?limit=10&after=2021-01-01T00:00:00
     http://localhost:5000/api/users/me/followers?limit=10&after=diana
 
 The response body in a paginated request contains a `data` attribute that is

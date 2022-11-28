@@ -12,6 +12,8 @@ def as_bool(value):
 
 
 class Config:
+    APP_NAME = os.environ.get("FLASKBASICAPI_APPLICATION") or "FlaskBasicAPI"
+
     # database options
     APP_NAME = os.environ.get("FLASKBASICAPI_APPLICATION") or "FlaskBasicAPI"
     ALCHEMICAL_DATABASE_URL = os.environ.get(
@@ -47,7 +49,7 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     MAIL_DEFAULT_SENDER = os.environ.get(
-        "MAIL_DEFAULT_SENDER", "donotreply@microblog.example.com"
+        "MAIL_DEFAULT_SENDER", "donotreply@flaskbasicapi.example.com"
     )
 
     MIGRATION_DIR = os.environ.get("MIGRATION_DIR", "migrations")
